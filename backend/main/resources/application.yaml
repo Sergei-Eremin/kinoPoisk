@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: core
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: ${JPA_DDL_MODE:update}
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: ${JPA_SHOW_SQL:true} # only for dev
+    properties:
+      hibernate:
+        order_by:
+          default_null_ordering: last
+        format_sql: true
+    defer-datasource-initialization: true
+    open-in-view: false
+  datasource:
+    url: ${DB_URL_POSTGRES:jdbc:postgresql://localhost:54333/kinopoisk}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
